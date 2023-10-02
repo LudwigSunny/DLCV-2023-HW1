@@ -5,7 +5,7 @@ Please click [this link](https://docs.google.com/presentation/d/17BmuGNCfDK6iUsA
 # Usage
 To start working on this assignment, you should clone this repository into your local machine by using the following command.
 
-    git clone https://github.com/DLCV-Fall-2023/dlcv-fall-2023-hw1-LudwigSunny.git
+    git clone https://github.com/LudwigSunny/DLCV-2023-HW1.git
 Note that you should replace `<username>` with your own GitHub username.
 
 # Submission Rules
