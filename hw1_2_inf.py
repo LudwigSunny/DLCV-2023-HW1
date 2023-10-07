@@ -36,9 +36,9 @@ parser.add_argument('--arg3', type=str, help='Help message for arg3')
 args = parser.parse_args()
 
 # storing the arguments
-test_img_csv = sys.argv[1]
-test_img_dir = sys.argv[2]
-output_pred_path = sys.argv[3]
+test_img_csv = args.arg1
+test_img_dir = args.arg2
+output_pred_path = args.arg3
 check_path = './hw1_2.ckpt'
 
 # set a random seed for reproducibility
