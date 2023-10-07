@@ -1,3 +1,3 @@
 #!/bin/bash
-
-# TODO - run your inference Python3 code
+#source .venv/bin/activate
+python hw1_2_inf.py $1 $2 $3
