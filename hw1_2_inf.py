@@ -15,7 +15,7 @@ import pandas as pd
 import torch
 import torch.nn as nn
 import os
-import argparse
+import sys
 import torchvision.transforms as transforms
 import torchvision.models as models
 from PIL import Image #PIL包含在pillow這個函式庫
@@ -26,22 +26,10 @@ from torchvision.datasets import DatasetFolder, VisionDataset
 from tqdm import tqdm
 import random
 
-
-# 创建 ArgumentParser 对象
-parser = argparse.ArgumentParser(description='Description inference.')
-
-# 添加命令行参数
-parser.add_argument('--arg1', type=str, help='Help message for arg1')
-parser.add_argument('--arg2', type=str, help='Help message for arg2')
-parser.add_argument('--arg3', type=str, help='Help message for arg3')
-
-# 解析命令行参数
-args = parser.parse_args()
-
 # storing the arguments
-test_img_csv = args.arg1
-test_img_dir = args.arg2
-output_pred_path = args.arg3
+test_img_csv = sys.argv[1]
+test_img_dir = sys.argv[2]
+output_pred_path = sys.argv[3]
 check_path = './hw1_2.ckpt'
 
 # set a random seed for reproducibility
