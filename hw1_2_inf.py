@@ -14,6 +14,7 @@ import numpy as np
 import pandas as pd
 import torch
 import torch.nn as nn
+import argparse
 import os
 import sys
 import torchvision.transforms as transforms
@@ -25,6 +26,14 @@ from torchvision.datasets import DatasetFolder, VisionDataset
 # This is for the progress bar.
 from tqdm import tqdm
 import random
+parser = argparse.ArgumentParser(description='Description of my script.')
+
+parser.add_argument('--arg1', type=str, help='Help message for arg1')
+parser.add_argument('--arg2', type=str, help='Help message for arg2')
+parser.add_argument('--arg3', type=str, help='Help message for arg3')
+
+# 解析命令行参数
+args = parser.parse_args()
 
 # storing the arguments
 test_img_csv = sys.argv[1]
