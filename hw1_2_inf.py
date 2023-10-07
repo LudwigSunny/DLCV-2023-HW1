@@ -114,40 +114,6 @@ office_valid_loader = DataLoader(office_valid_set, batch_size=batch_size, shuffl
 
 model.eval()
 
-# These are used to record information in validation.
-valid_loss = []
-valid_accs = []
-
-# Iterate the validation set by batches.
-for batch in tqdm(office_valid_loader):
-
-    # A batch consists of image data and corresponding labels.
-    imgs, labels = batch
-    #imgs = imgs.half()
-
-    # We don't need gradient in validation.
-    # Using torch.no_grad() accelerates the forward process.
-    with torch.no_grad():
-        logits = model(imgs.to(device))
-
-    # We can still compute the loss (but not the gradient).
-    loss = criterion(logits, labels.to(device))
-
-    # Compute the accuracy for current batch.
-    acc = (logits.argmax(dim=-1) == labels.to(device)).float().mean()
-
-    # Record the loss and accuracy.
-    valid_loss.append(loss.item())
-    valid_accs.append(acc)
-    #break
-
-# The average loss and accuracy for entire validation set is the average of the recorded values.
-valid_loss = sum(valid_loss) / len(valid_loss)
-valid_acc = sum(valid_accs) / len(valid_accs)
-
-# Print the information.
-print(f"[ Valid ] loss = {valid_loss:.5f}, acc = {valid_acc:.5f}")
-
 """### Testing and generate prediction CSV"""
 
 prediction = []
