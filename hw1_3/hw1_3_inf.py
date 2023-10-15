@@ -143,8 +143,8 @@ class hw1_3_Dataset(Dataset):
     def __init__(self,path,tfm=test_tfm, target_tfm=test_target_tfm):
         super(hw1_3_Dataset).__init__()
         self.path = path
-        self.files = sorted([x.split(".")[0] for x in os.listdir(path) if x.endswith(".jpg")])
-        self.imgs = [os.path.join(path,(x)+".jpg") for x in self.files]
+        self.files = sorted([x.split(".")[0].split("_")[0] for x in os.listdir(path) if x.endswith(".jpg")])
+        self.imgs = [os.path.join(path,(x)+"_sat.jpg") for x in self.files]
         self.masks = [os.path.join(path,(x)+"_mask.png") for x in self.files]
 
         self.transform = tfm
@@ -173,7 +173,7 @@ class hw1_3_Dataset(Dataset):
 batch_size = 16
 test_set = hw1_3_Dataset(path=test_img_dir, tfm=test_tfm, target_tfm=test_target_tfm)
 test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=False, num_workers=0, pin_memory=True)
-prediction_names = [f'{i[0]+i[1]+i[2]+i[3]}.png' for i in test_set.files]
+prediction_names = [f'{i}_mask.png' for i in test_set.files]
 
 """# Create Model and Configurations"""
 
