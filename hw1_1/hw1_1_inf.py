@@ -18,7 +18,7 @@ import random
 # storing the arguments
 test_img_dir = sys.argv[1]
 output_pred_path = sys.argv[2]
-check_path = './hw1_1/hw1_1_best.ckpt'
+check_path = './hw1_1_best.ckpt'
 
 """# Transforms
 Torchvision provides lots of useful utilities for image preprocessing, data wrapping as well as data augmentation.
